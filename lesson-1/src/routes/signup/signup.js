@@ -1,20 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// const saveUser = user => {
-//   // получить файл с юзером
-//   const userName = user.username;
-//   // найти путь папки users
-//   const filePath = path.join(__dirname, '../../db/users', `${userName}.json`);
-//   // сохранить туда файл
-//   fs.writeFile(filePath, JSON.stringify(user), function(err) {
-//       if (err) throw err;
-//       console.log(`${userName}.json was created`)
-//   })
-// }
-
 const signUpRoute = (req, res) => {
-  // Взять данные что пришли
   if(req.method === 'POST') {
       let body = '';
 
@@ -28,7 +15,6 @@ const signUpRoute = (req, res) => {
           const post = JSON.parse(body);
 
           const { username } = post;
-          name = username;
 
           fs.writeFile(path.join(__dirname, '../../db/users', `${username}.json`), body, err => {
               if (err) throw err;
